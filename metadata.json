@@ -1,0 +1,6 @@
+{
+  "name": "صلة",
+  "description": "تطبيق مراسلة فورية عصري وفاخر مع محادثات فردية وجماعية ومجتمعات ومكالمات وحالات وتشفير ووضع ليلي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

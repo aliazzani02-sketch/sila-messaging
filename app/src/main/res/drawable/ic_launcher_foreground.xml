@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Primary Connected Node / Speech Bubble 1 -->
+    <path
+        android:fillColor="#818CF8"
+        android:pathData="M38,34 C26,34 18,42 18,54 C18,66 26,74 38,74 C42,74 46,73 49,71 L58,74 L55,66 C57,63 58,59 58,54 C58,42 50,34 38,34 Z" />
+    
+    <!-- Connected Node / Speech Bubble 2 (Overlapping Sila Bond) -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M70,34 C58,34 50,42 50,54 C50,58 51,62 53,65 L50,74 L59,71 C62,73 66,74 70,74 C82,74 90,66 90,54 C90,42 82,34 70,34 Z" />
+
+    <!-- Center White Bond Link -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,44 C48.477,44 44,48.477 44,54 C44,59.523 48.477,64 54,64 C59.523,64 64,59.523 64,54 C64,48.477 59.523,44 54,44 Z" />
+    <path
+        android:fillColor="#6366F1"
+        android:pathData="M54,49 C51.239,49 49,51.239 49,54 C49,56.761 51.239,59 54,59 C56.761,59 59,56.761 59,54 C59,51.239 56.761,49 54,49 Z" />
+</vector>

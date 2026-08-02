@@ -11,7 +11,7 @@ plugins {
 
 android {
   namespace = "com.example"
-  compileSdk { version = release(36) { minorApiLevel = 1 } }
+  compileSdk = 36
 
   defaultConfig {
     applicationId = "com.aistudio.sila.app"
@@ -22,16 +22,14 @@ android {
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
-create("debugConfig") {
-    storeFile = file("${rootProject.rootDir}/debug.keystore")
-    ...
-}
 
-    create("debugConfig") {
-      storeFile = file("${rootDir}/debug.keystore")
-      storePassword = "android"
-      keyAlias = "androiddebugkey"
-      keyPassword = "android"
+  signingConfigs {
+    create("release") {
+      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
+      storeFile = file(keystorePath)
+      storePassword = System.getenv("STORE_PASSWORD")
+      keyAlias = "upload"
+      keyPassword = System.getenv("KEY_PASSWORD")
     }
   }
 
@@ -42,7 +40,9 @@ create("debugConfig") {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
       signingConfig = signingConfigs.getByName("release")
     }
-    debug { signingConfig = signingConfigs.getByName("debugConfig") }
+    debug {
+      // تم حذف إشارة debugConfig لكي يستخدم النظام التوقيع الافتراضي التلقائي ولن يطلب أي ملفات مفاتيح
+    }
   }
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -121,6 +121,6 @@ dependencies {
   androidTestImplementation(libs.androidx.runner)
   debugImplementation(libs.androidx.compose.ui.test.manifest)
   debugImplementation(libs.androidx.compose.ui.tooling)
-  "ksp"(libs.androidx.room.compiler)
-  "ksp"(libs.moshi.kotlin.codegen)
+  ksp(libs.androidx.room.compiler)
+  ksp(libs.moshi.kotlin.codegen)
 }
